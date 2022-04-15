@@ -1,7 +1,9 @@
 import React from 'react';
 import './App.css';
-import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
+import TourCard from 'components/TourCard';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
 
 
 
@@ -11,12 +13,19 @@ function App() {
     <React.Fragment>
         <CssBaseline />
 
-        <div className="App">
+        <Container maxWidth="lg">
+            <Grid container spacing={5}>
 
+                <TourCard/>
+                <TourCard/>
+                <TourCard/>
+                <TourCard/>
 
+            </Grid>
 
-            <Button variant="contained">Hello World</Button>
-        </div>
+            {/*https://www.youtube.com/watch?v=o1chMISeTC0*/}
+
+        </Container>
     </React.Fragment>
   );
 }

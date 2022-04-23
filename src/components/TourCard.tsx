@@ -35,18 +35,18 @@ const theme = createTheme({
     },
 });
 
-const TourCard = () => {
+const TourCard = ({tour}: any) => {
     return <ThemeProvider theme={theme}>
         <Grid item xs={3}>
             <Paper elevation={3}>
                 <img
                     className={"img"}
-                    src="https://files.worldwildlife.org/wwfcmsprod/images/Mountains_New_Hero_Image/hero_small/1bs3lrclhi_mountains_hero.jpg" alt=""
+                    src={tour.image} alt=""
                 />
 
                 <Box padding={1}>
                     <Typography variant={'subtitle1'} component={'h2'}>
-                        Lorem ipsum dolor.
+                        {tour.name}
                     </Typography>
 
                     <Box
@@ -57,7 +57,9 @@ const TourCard = () => {
                     >
                         <AccessTimeIcon sx={{width: 12.5}}/>
 
-                        <Typography variant={'body2'} component={'p'} marginLeft={0.5}>5 hours</Typography>
+                        <Typography variant={'body2'} component={'p'} marginLeft={0.5}>
+                            {tour.duration} hours
+                        </Typography>
                     </Box>
 
                     <Box sx={{
@@ -66,13 +68,19 @@ const TourCard = () => {
                     }} marginTop={3}>
                         <Rating name="read-only" value={4.5} readOnly precision={0.5} size={'small'} />
 
-                        <Typography variant={'body2'} component={'p'} marginLeft={0.5}>4.5</Typography>
-                        <Typography variant={'caption'} component={'p'} marginLeft={1.5}>(655 reviews))</Typography>
+                        <Typography variant={'body2'} component={'p'} marginLeft={0.5}>
+                            {tour.ratin}
+                        </Typography>
+                        <Typography variant={'caption'} component={'p'} marginLeft={1.5}>
+                            ({tour.numberOfReviews} reviews))
+                        </Typography>
 
                     </Box>
 
                     <Box>
-                        <Typography variant={'h6'} component={'h3'} marginTop={0}>From C $355</Typography>
+                        <Typography variant={'h6'} component={'h3'} marginTop={0}>
+                            From C ${tour.price}
+                        </Typography>
                     </Box>
 
                 </Box>

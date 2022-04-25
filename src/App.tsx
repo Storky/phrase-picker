@@ -1,13 +1,9 @@
 import React from 'react';
 import './App.css';
 import CssBaseline from '@mui/material/CssBaseline';
-import TourCard from 'components/TourCard';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SearchAppBar from 'components/AppBar';
-import cities from 'data.json';
-import Typography from '@mui/material/Typography';
-
+import CommentsPage from 'pages/CommentsPage';
 
 
 function App() {
@@ -16,30 +12,15 @@ function App() {
         <CssBaseline />
 
         <SearchAppBar/>
-        <Container maxWidth="lg" sx={{marginY: 5}}>
 
-            {cities.map((city) => (
-                <React.Fragment>
-                    <Typography
-                        variant={'h4'}
-                        component={'h2'}
-                        marginTop={5}
-                        marginBottom={3}
-                    >
-                        Top {city.name} Tours
-                    </Typography>
+        <BrowserRouter>
+            <Routes>
+                <Route path={'/'} element={<CommentsPage />} />
+                {/*<Route path={'/:id'} element={<Tour />} />*/}
 
-                    <Grid container spacing={5}>
-                        {city.tours.map((tour) => (
-                            <TourCard tour={tour} key={tour.name}/>
-                        ))}
-                    </Grid>
-                </React.Fragment>
-            ))}
+            </Routes>
+        </BrowserRouter>
 
-            {/*https://www.youtube.com/watch?v=o1chMISeTC0*/}
-
-        </Container>
     </React.Fragment>
   );
 }

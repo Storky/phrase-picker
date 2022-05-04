@@ -8,6 +8,9 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+import Link from '@mui/material/Link';
+import Button from '@mui/material/Button';
+
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -73,6 +76,12 @@ export default function SearchAppBar() {
                     >
                         MUI
                     </Typography>
+
+                    <Button variant="outlined" >Outlined</Button>
+                    <Link href={'https://formik.org/'} underline="hover" target={'_blank'}>Formik</Link>
+                    <Link href={'https://mui.com/material-ui/getting-started/installation/'} underline="hover" target={'_blank'}>Mui5</Link>
+
+
                     <Search>
                         <SearchIconWrapper>
                             <SearchIcon />

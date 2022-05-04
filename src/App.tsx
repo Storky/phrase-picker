@@ -7,10 +7,19 @@ import Grid from '@mui/material/Grid';
 import SearchAppBar from 'components/AppBar';
 import cities from 'data.json';
 import Typography from '@mui/material/Typography';
+import {CommentForm} from './components/forms/comment-form';
+import MyLink from './components/my-link';
 
+
+import getNumbersTo1Dmg from 'utils/pummel'
 
 
 function App() {
+
+    React.useEffect(()=>{
+        getNumbersTo1Dmg();
+    });
+
   return (
     <React.Fragment>
         <CssBaseline />
@@ -18,24 +27,11 @@ function App() {
         <SearchAppBar/>
         <Container maxWidth="lg" sx={{marginY: 5}}>
 
-            {cities.map((city) => (
-                <React.Fragment>
-                    <Typography
-                        variant={'h4'}
-                        component={'h2'}
-                        marginTop={5}
-                        marginBottom={3}
-                    >
-                        Top {city.name} Tours
-                    </Typography>
 
-                    <Grid container spacing={5}>
-                        {city.tours.map((tour) => (
-                            <TourCard tour={tour} key={tour.name}/>
-                        ))}
-                    </Grid>
-                </React.Fragment>
-            ))}
+            <br/>
+            <MyLink/>
+            <br/>
+            <CommentForm/>
 
             {/*https://www.youtube.com/watch?v=o1chMISeTC0*/}
 
